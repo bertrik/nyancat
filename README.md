@@ -1,0 +1,4 @@
+nyancat
+=======
+
+C project for generating an animated gif suitable for displaying on an 80x8 led banner
