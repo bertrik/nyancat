@@ -213,7 +213,7 @@ int main(int argc, char *argv[])
     (void)argc;
     (void)argv;
 
-    for (i = 0; i < 96; i++) {
+    for (i = 0; i < 48; i++) {
         frame = i % 8;
 
         draw_back(frame, (char *)image);
