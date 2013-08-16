@@ -114,13 +114,13 @@ static void draw_back(int frame, char *image)
 }
 
 // draws the rainbow
-static void draw_rainbow(int frame, char *image)
+static void draw_rainbow(int frame, int position, char *image)
 {
     int i;
     int phase;
 
     phase = frame % 8;
-    for (i = -phase; i < 60; i += rainbow.width) {
+    for (i = -phase; i < position; i += rainbow.width) {
         copy_blob(image, &rainbow, i, 1);
     }
 }
@@ -137,24 +137,24 @@ static int wobble(int frame, int offset, int len)
 }
 
 // draws the body
-static void draw_body(int frame, char *image)
+static void draw_body(int frame, int position, char *image)
 {
     int off_y;
 
     off_y = wobble(frame, 2, 8);
 
-    copy_blob(image, &body, 60, off_y);
+    copy_blob(image, &body, position, off_y);
 }
 
 // draws the head
-static void draw_head(int frame, char *image)
+static void draw_head(int frame, int position, char *image)
 {
     int off_x, off_y;
 
     off_x = wobble(frame, 3, 8);
     off_y = wobble(frame, 1, 8);
 
-    copy_blob(image, &head, 66 + off_x, off_y);
+    copy_blob(image, &head, position + off_x + 6, off_y);
 }
 
 // converts a color character into an RGB value
@@ -207,19 +207,21 @@ static void save_image(int index, char *image)
 int main(int argc, char *argv[])
 {
     int i;
-    int frame;
     char image[HEIGHT][WIDTH];
+    int nyan_x = 0;
 
     (void)argc;
     (void)argv;
 
-    for (i = 0; i < 48; i++) {
-        frame = i % 8;
+    for (i = 0; i < 64; i++) {
+        if (i < 30) {
+            nyan_x = 2 * i;
+        }
 
-        draw_back(frame, (char *)image);
-        draw_rainbow(frame, (char *)image);
-        draw_body(frame, (char *)image);
-        draw_head(frame, (char *)image);
+        draw_back(i, (char *)image);
+        draw_rainbow(i, nyan_x, (char *)image);
+        draw_body(i, nyan_x, (char *)image);
+        draw_head(i, nyan_x, (char *)image);
 
         save_image(i, (char *)image);
     }
