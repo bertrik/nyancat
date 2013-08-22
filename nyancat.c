@@ -41,16 +41,6 @@ typedef struct {
 } blob_t;
 
 static const blob_t head = {
-#if 0   // wide head
-    11, 7,
-    " BB     BB "
-    " BGBBBBBGB "
-    "BGWBGGGWBGB"
-    "BGBBGBGBBGB"
-    "BsGGGGGGGsB"
-    " BGGGGGGGB "
-    "  BBBBBBB  "
-#else   // narrow head
     9, 7,
     " BB   BB "
     " BGBBBGB "
@@ -59,7 +49,6 @@ static const blob_t head = {
     "BsGGGGGsB"
     " BGGGGGB "
     "  BBBBB  "
-#endif
 };
 
 static const blob_t body = {
@@ -84,8 +73,8 @@ static const blob_t rainbow = {
     "    pppp"
 };
 
-// copies a blob into the image at coordinates (x,y)
-static void copy_blob(char *image, const blob_t *blob, int x, int y)
+// draws a blob into the image at (x,y), taking into account transparency
+static void draw_blob(char *image, const blob_t *blob, int x, int y)
 {
     char c;
     int row, col;
@@ -121,7 +110,7 @@ static void draw_rainbow(int frame, int position, char *image)
 
     phase = frame % 8;
     for (i = -phase; i < position; i += rainbow.width) {
-        copy_blob(image, &rainbow, i, 1);
+        draw_blob(image, &rainbow, i, 1);
     }
 }
 
@@ -143,7 +132,7 @@ static void draw_body(int frame, int position, char *image)
 
     off_y = wobble(frame, 2, 8);
 
-    copy_blob(image, &body, position, off_y);
+    draw_blob(image, &body, position, off_y);
 }
 
 // draws the head
@@ -154,7 +143,7 @@ static void draw_head(int frame, int position, char *image)
     off_x = wobble(frame, 3, 8);
     off_y = wobble(frame, 1, 8);
 
-    copy_blob(image, &head, position + off_x + 6, off_y);
+    draw_blob(image, &head, position + off_x + 6, off_y);
 }
 
 // converts a color character into an RGB value
