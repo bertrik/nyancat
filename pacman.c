@@ -303,13 +303,13 @@ int main(int argc, char *argv[])
     (void)argc;
     (void)argv;
 
-    for (frame = 0; frame < 144; frame++) {
+    for (frame = 0; frame < 72; frame++) {
         draw_back(frame, (char *)image);
         
-        distance = (144 - frame) / 4;
-        if (frame < 72) {
+        distance = (72 - frame) / 4;
+        if (frame < 36) {
             // left to right chase
-            pos_pac = frame;
+            pos_pac = 2 * frame;
             pos_ghost = pos_pac - distance - 8;
             
             draw_dots(frame, pos_pac, (char *)image);
@@ -317,7 +317,7 @@ int main(int argc, char *argv[])
             draw_ghost_lr(frame, pos_ghost, (char *)image);
         } else {
             // right to left chase
-            pos_pac = 144 - frame;
+            pos_pac = 72 - 2 * (frame - 36);
             pos_ghost = pos_pac - distance - 8;
             
             draw_pac_rl(frame, pos_pac, (char *)image);
