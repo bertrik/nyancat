@@ -1,13 +1,21 @@
 CFLAGS = -O3 -W -Wall
 
-all: nyancat create gif
+all: nyancat pacman
 
-create:
+ppm_nyancat: nyancat
 	./nyancat
 
-gif:
-	convert -loop 0 -delay 5 image*.ppm nyancat.gif
+ppm_pacman: pacman
+	./pacman
+
+nyancat.gif: ppm_nyancat
+	convert -loop 0 -delay 5 nyancat*.ppm nyancat.gif
+
+pacman.gif: ppm_pacman
+	convert -loop 0 -delay 5 pacman*.ppm pacman.gif
 
 clean:
 	rm -f nyancat
-	rm -f image*.ppm nyancat.gif
+	rm -f nyancat*.ppm nyancat.gif
+	rm -f pacman
+	rm -f pacman*.ppm pacman.gif

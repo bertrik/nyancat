@@ -172,7 +172,7 @@ static void save_image(int index, char *image)
     uint32_t rgb;
     uint8_t b;
 
-    sprintf(filename, "image%03d.ppm", index);
+    sprintf(filename, "nyancat%03d.ppm", index);
     file = fopen(filename, "wb");
     if (file != NULL) {
         fprintf(file, "P6\n%d %d\n%d\n", WIDTH, HEIGHT, 255);
