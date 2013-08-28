@@ -1,24 +1,18 @@
 CFLAGS = -O3 -W -Wall
 
-all: nyancat pacman invaders
+all: nyancat.gif pacman.gif invaders.gif
 
-ppm_nyancat: nyancat
+nyancat.gif: nyancat
 	./nyancat
+	convert -loop 0 -delay 5 +map nyancat*.ppm nyancat.gif
 
-ppm_pacman: pacman
+pacman.gif: pacman
 	./pacman
+	convert -loop 0 -delay 5 +map pacman*.ppm pacman.gif
 
-ppm_invaders: invaders
+invaders.gif: invaders
 	./invaders
-
-nyancat.gif: ppm_nyancat
-	convert -loop 0 -delay 5 nyancat*.ppm nyancat.gif
-
-pacman.gif: ppm_pacman
-	convert -loop 0 -delay 5 pacman*.ppm pacman.gif
-
-invaders.gif: ppm_invaders
-	convert -loop 0 -delay 15 invaders*.ppm invaders.gif
+	convert -loop 0 -delay 15 +map invaders*.ppm invaders.gif
 
 clean:
 	rm -f nyancat
