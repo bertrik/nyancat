@@ -63,10 +63,10 @@ static const blob_t shooter = {
 static const blob_t sunflower = {
     6, 6,
     " YYYY "
-    "YyByBY"
+    "YByyBY"
     "YyyyyY"
-    "YByyyB"
-    "YyBBBY"
+    "YByyBY"
+    "YyBByY"
     " YYYY "
 };
 
