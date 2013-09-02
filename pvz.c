@@ -124,18 +124,7 @@ static void draw_blob(char *image, const blob_t *blob, int x, int y)
 static void draw_back(int frame, char *image)
 {
     (void)frame;
-    int x, y;
-    char c;
-    for (y = 0; y < HEIGHT; y++) {
-        for (x = 0; x < WIDTH; x++) {
-            if (((x / 12) % 2) == 0) {
-                c = '1';
-            } else {
-                c = '2';
-            }
-            image[y * WIDTH + x] = c;
-        }
-    }
+    memset(image, 'B', HEIGHT * WIDTH);
 }
 
 static int pattern[][2] = {
