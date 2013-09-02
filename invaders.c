@@ -37,27 +37,27 @@ typedef struct {
 
 // invader 1
 static const blob_t invader1a = {
-    8, 8,
-    "   gg   "
-    "  gggg  "
-    " gggggg "
-    "gg gg gg"
-    "gggggggg"
-    " g gg g "
-    "g      g"
-    " g    g "
+    10, 8,
+    "    gg    "
+    "   gggg   "
+    "  gggggg  "
+    " gg gg gg "
+    " gggggggg "
+    "  g gg g  "
+    " g      g "
+    "  g    g  "
 };
 
 static const blob_t invader1b = {
-    8, 8,
-    "   gg   "
-    "  gggg  "
-    " gggggg "
-    "gg gg gg"
-    "gggggggg"
-    "  g  g  "
-    " g gg g "
-    "g g  g g"
+    10, 8,
+    "    gg    "
+    "   gggg   "
+    "  gggggg  "
+    " gg gg gg "
+    " gggggggg "
+    "   g  g   "
+    "  g gg g  "
+    " g g  g g "
 };
 
 // invader 2
