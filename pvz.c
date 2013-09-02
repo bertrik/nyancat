@@ -17,13 +17,6 @@ static const color_t colors[] = {
     {'W', 0xffffff},   // white
     {'z', 0x808080},   // dark grey (Z for zombie)
 
-    // shades of gray
-    {'1', 0x041004},
-    {'2', 0x082008},
-    {'3', 0x202020},
-    {'4', 0x202020},
-    {'5', 0x202020},
-
     // green tints
     {'d', 0x008000},    // dark green
     {'g', 0x00C000},    // normal green
@@ -142,11 +135,12 @@ static int pattern[][2] = {
 static void draw_shooter(int frame, int x, int y, char *image)
 {
     int phase;
+    int xx, yy;
     
     phase = frame % 8;
     
-    int xx = x + pattern[phase][0] + 1;
-    int yy = y + pattern[phase][1];
+    xx = x + pattern[phase][0] + 1;
+    yy = y + pattern[phase][1];
 
     draw_blob(image, &stalk, x + 2, y + 6);
     draw_blob(image, &shooter, xx, yy);
@@ -156,11 +150,12 @@ static void draw_shooter(int frame, int x, int y, char *image)
 static void draw_sunflower(int frame, int x, int y, char *image)
 {
     int phase;
+    int xx, yy;
     
     phase = (frame + 2) % 8;
     
-    int xx = x + pattern[phase][0] + 3;
-    int yy = y + pattern[phase][1];
+    xx = x + pattern[phase][0] + 3;
+    yy = y + pattern[phase][1];
 
     draw_blob(image, &stalk, x + 2, y + 6);
     draw_blob(image, &sunflower, xx, yy);
