@@ -22,10 +22,10 @@ fire.gif: fire
 	./fire && convert -loop 0 -delay 5 +map fire*.ppm fire.gif
 
 clean:
-	rm -f nyancat nyancat*.ppm nyancat.gif
-	rm -f pacman pacman*.ppm pacman.gif
-	rm -f invaders invaders*.ppm invaders.gif
-	rm -f pvz pvz*.ppm pvz.gif
-	rm -f metaballs metaballs*.ppm metaballs.gif
-	rm -f fire fire*.ppm fire.gif
+	rm -f nyancat nyancat*.ppm
+	rm -f pacman pacman*.ppm
+	rm -f invaders invaders*.ppm
+	rm -f pvz pvz*.ppm
+	rm -f metaballs metaballs*.ppm
+	rm -f fire fire*.ppm
 	
