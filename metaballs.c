@@ -157,15 +157,15 @@ int main(int argc, char *argv[])
         move_t *move = malloc(sizeof(move_t));
         move->cx = myrand(2*WIDTH) - WIDTH;
         move->cy = myrand(4*HEIGHT) - 2*HEIGHT;
-        move->vx = 2.0 - myrand(4.0);
-        move->vy = 2.0 - myrand(4.0);
+        move->vx = (2.0 - myrand(4.0)) / 10.0;
+        move->vy = (2.0 - myrand(4.0)) / 10.0;
         move->d  = 2.0 + myrand(12.0);
         moves[i] = move;
     }
 
     // draw metaballs
     int j;
-    for (i = 0; i < 200; i++) {
+    for (i = 0; i < 1000; i++) {
         memset(field, 0, sizeof(field));
         
         for (j = 0; j < NUM_BALLS; j++) {

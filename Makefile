@@ -16,7 +16,7 @@ pvz.gif: pvz
 	./pvz && convert -loop 0 -delay 15 +map pvz*.ppm pvz.gif
 
 metaballs.gif: metaballs
-	./metaballs && convert -loop 0 -delay 10 +map metaballs*.ppm metaballs.gif
+	./metaballs && convert -loop 0 -delay 1 +map metaballs*.ppm metaballs.gif
 
 fire.gif: fire
 	./fire && convert -loop 0 -delay 5 +map fire*.ppm fire.gif
