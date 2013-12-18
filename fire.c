@@ -43,15 +43,9 @@ static int create_palette(uint32_t palet[])
     int k = 0;
     int r = 0, g = 0, b = 0;
 
-    // black to blue
+    // black to red
     for (i = 0; i < 15; i++) {
-        palet[k++] = (r << 20) + (g << 12) + (b << 4);
-        b++;
-    }
-    // blue to red
-    for (i = 0; i < 15; i++) {
-        palet[k++] = (r << 20) + (g << 12) + (b << 4);
-        b--;
+        palet[k++] = (r << 20) + (g << 12) + ((b/4) << 4);
         r++;
     }
     // red to yellow
@@ -90,7 +84,7 @@ static void move_fire(uint8_t field[][WIDTH], int height)
             if (flame > 4) {
                 flame -= 4;
             } else {
-                flame /=2 ;
+                flame /= 2;
             }
             field[y][x] = flame;
         }
