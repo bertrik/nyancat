@@ -1,7 +1,7 @@
 CFLAGS = -O3 -W -Wall
 LDLIBS = -lm
 
-all: nyancat.gif pacman.gif invaders.gif pvz.gif metaballs.gif fire.gif
+all: nyancat.gif pacman.gif invaders.gif pvz.gif metaballs.gif fire.gif scroll.gif
 
 nyancat.gif: nyancat
 	./nyancat && convert -loop 0 -delay 5 +map nyancat*.ppm nyancat.gif
@@ -21,6 +21,9 @@ metaballs.gif: metaballs
 fire.gif: fire
 	./fire && convert -loop 0 -delay 5 +map fire*.ppm fire.gif
 
+scroll.gif: scroll
+	./scroll && convert -loop 0 -delay 1 +map scroll*.ppm scroll.gif
+
 clean:
 	rm -f nyancat nyancat*.ppm
 	rm -f pacman pacman*.ppm
@@ -28,4 +31,5 @@ clean:
 	rm -f pvz pvz*.ppm
 	rm -f metaballs metaballs*.ppm
 	rm -f fire fire*.ppm
-	
+	rm -f scroll scroll*.ppm
+
